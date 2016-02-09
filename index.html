@@ -17,7 +17,7 @@
 
   <!-- For syntax highlighting -->
   <!-- light editor-->
-  <link rel="stylesheet" href="reveal/lib/css/light.css">
+  <link rel="stylesheet" href="css/styles/tomorrow.css">
   <!-- dark editor<link rel="stylesheet" href="reveal/lib/css/dark.css">-->
   <link rel="stylesheet" href="css/slides.css">
   <!-- If the query includes 'print-pdf', include the PDF print sheet -->
@@ -393,7 +393,7 @@ list-style-type: square;
       <!-- DOCTYPE -->
       <section>
         <h2>HTML5 Doctype</h2>
-        <pre><code class="xml">
+        <pre><code class="html">
 &lt;!DOCTYPE html&gt;
         </code></pre>
         <p>
@@ -403,7 +403,7 @@ list-style-type: square;
 
       <section>
         <h2>Old Doctypes</h2>
-        <pre><code class="xml">
+        <pre><code class="html">
 &lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
 "http://www.w3.org/TR/html4/strict.dtd"&gt;
 
@@ -506,7 +506,7 @@ list-style-type: square;
       <section>
         <h3>Fixed Nav: HTML</h3>
         <p>Let's include it in a header, since we know we'll be grouping related content here.</p>
-        <pre><code class="xml">
+        <pre><code class="html">
 &lt;header role="banner"&gt;
   &lt;nav class="main-nav"&gt;
     &lt;ul&gt;
@@ -588,7 +588,7 @@ body { padding-top: 70px; }
         <p>We can use a single
           <code>H1</code> with text replacement to include a brand, or logo, in the corner
           that will still work if images are turned off, making it accessible to screen readers.</p>
-          <pre><code class="xml">
+          <pre><code class="html">
 &lt;header role="banner"&gt;
   &lt;nav class="main-nav"&gt;
   &lt;h1 id="brand"&gt;Cara Jo Miller&lt;/h1&gt;
@@ -635,7 +635,7 @@ body { padding-top: 70px; }
       <section>
         <h3>Fixed Nav: Container</h3>
         <p>Notice how the edge of the nav bumps up against the edge of the browser? Let's fix that by adding a container around it.</p>
-        <pre><code class="xml">
+        <pre><code class="html">
 &lt;header role="banner"&gt;
   &lt;nav class="main-nav"&gt;
     &lt;div class="container"&gt;
@@ -713,7 +713,7 @@ body { padding-top: 70px; }
       <section>
         <h3>Hero: HTML</h3>
         <p>Our hero section should look a little something like this:</p>
-        <pre><code class="xml">
+        <pre><code class="html">
 &lt;section id="hero"&gt;
   &lt;img src="images/wally-wizard.jpg" alt="" /&gt;
   &lt;h2&gt;Wally Wallerson&lt;/h2&gt;
@@ -903,7 +903,7 @@ body { padding-top: 70px; }
       <section>
         <h3>3 Column: HTML</h3>
         <p>Our code should look something like this:</p>
-        <pre><code class="xml">
+        <pre><code class="html">
 &lt;section id="main-content"&gt;
   &lt;h3&gt;...&lt;/h3&gt;
   &lt;article class="column"&gt;
@@ -955,7 +955,7 @@ body { padding-top: 70px; }
         <h3>3 Column: Container</h3>
         <p>We've got our 3 column layout set, our images are scaled based on the width of the
           column, but our columns are still bumping against the edges of the browser.</p>
-        <pre><code class="xml">
+        <pre><code class="html">
 &lt;section id="main-content"&gt;
   &lt;div class="container"&gt;
     &lt;h3&gt;...&lt;/h3&gt;
@@ -1028,7 +1028,7 @@ body { padding-top: 70px; }
  onerror="this.onerror=null; this.src='image.png'"></code></pre>
         <p>Use SVG as a background image:</p>
         <p class="blue" style="margin-bottom:0;">HTML:</p>
-        <pre><code class="xml">
+        <pre><code class="html">
 &lt;a href="/" class="logo"&gt;
 Girl Develop It
 &lt;/a&gt;
@@ -1049,7 +1049,7 @@ Girl Develop It
       <section>
         <h2>Inline SVG</h2>
         <p>Alternatively, you can put SVG markup directly into your HTML:</p>
-        <pre><code class="xml">
+        <pre><code class="html">
 &lt;ul id="socialIcons"&gt;
   &lt;li&gt;
     &lt;a href="http://twitter.com/"&gt;
@@ -1082,7 +1082,7 @@ Girl Develop It
 
       <section>
         <h3>Social Links: HTML</h3>
-        <pre><code class="xml">
+        <pre><code class="html">
 &lt;section id="social"&gt;
   &lt;ul&gt;
     &lt;li&gt;
@@ -1118,7 +1118,7 @@ Girl Develop It
       <section>
         <h3>Centering the List</h3>
         <p>First we should put our social links in a container! We'll also add in a headline.</p>
-        <pre><code class="xml">
+        <pre><code class="html">
 &lt;section id="social">
   &lt;div class="container">
     &lt;h3>...&lt;/h3>
@@ -1190,7 +1190,7 @@ Girl Develop It
           <li>Compare and refine the collection - think about what styles you *NEED*</li>
           <li>Grab the code that Google prepares for you and add it to your site!</li>
         </ol>
-        <pre><code class="xml">
+        <pre><code class="html">
 @import url(http://fonts.googleapis.com/
 css?family=Lato:300,400,700,300italic,400italic|Bree+Serif);
         </code></pre>
