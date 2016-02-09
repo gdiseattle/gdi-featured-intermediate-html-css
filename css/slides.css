@@ -1,3 +1,10 @@
+.reveal .interstitial *,
+.reveal .interstitial a {
+  color: #fafafa;
+}
+.reveal .interstitial a:hover {
+  color: #fffffa;
+}
 div.sliders {
   text-align: right;
   margin: 0 auto;
