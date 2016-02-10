@@ -278,27 +278,13 @@ list-style-type: square;
       </section>
       
       <section>
-        <h3>Fixed vs. Fluid Width pages</h3>
-        <p>
-          <strong class="blue">Fixed</strong>
-        </p>
-        <ul>
-          <li>Fixed websites have a set width for the wrapper, usually 960px to 1024px.</li>
-          <li>The elements inside the wrapper have a set width, or percentage of the wrapper width.</li>
-          <li>No matter the screensize, the user always sees the same size site.</li>
-        </ul>
-      </section>
-      
-      <section>
-        <h3>Fixed vs. Fluid Width pages</h3>
-        <p>
-          <strong class="blue">Fluid</strong>
-        </p>
+        <h3>Fluid layouts</h3>
         <ul>
           <li>Also referred to as a liquid layout.</li>
           <li>Majority of the components, including the wrapper, have percentages for their widths.</li>
           <li>The layout adjusts for the width of the user's screen resolution.</li>
-          <li>Sounds like a responsive site right!? More on that later.</li>
+          <li>Some elements may have pixel-based minimum or maximum widths.</li>
+          <li>Ties into responsive layouts, which we'll cover in more detail later.</li>
         </ul>
       </section>
       
@@ -605,16 +591,6 @@ body {
         <p>Now we need to get those list items next to each other instead of stacked.</p>
         <p>Let's float them to the left and add some padding to the links so they have a large clickable area.</p>
         <pre><code class="css">
-body { padding-top: 70px; }
-.main-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: #fafafa;
-  border-bottom: 2px solid #ccc;
-  height: 70px;
-  width: 100%;
-}
 .main-nav li {
   float: left;
   width: auto;
@@ -785,14 +761,9 @@ body { padding-top: 70px; }
   background: url(../images/alpinelakes.jpg) no-repeat top left;
   color: #fafafa;
   text-align: center;
-  height: 350px;
   padding: 25px 0;
 }
-        </code></pre> 
-        <p>Remember our Box Model. Padding adds to the height &amp; width of elements.</p>
-        <p>So the height of our hero will be
-          <code>400px</code>
-        </p>
+        </code></pre>
       </section>
 
       <section>
@@ -895,7 +866,6 @@ body { padding-top: 70px; }
   background-size: cover;
   color: #fafafa;
   text-align: center;
-  height: 350px;
   padding: 25px 0;
 }
         </code></pre>
@@ -966,11 +936,11 @@ body { padding-top: 70px; }
         <pre><code class="css">
 .column {
   float: left;
-  width: 33%;
+  width: 33.33%;
   padding: 15px;
 }
         </code></pre>
-        <p>We used 30%, because it let's us perfectly spaced columns without doing math! Don't forget padding (or margin) to give the columns so space.</p>
+        <p>We used 33.33%, because it let's us perfectly spaced columns without doing math! Don't forget padding (or margin) to give the columns so space.</p>
       </section>
 
       <section>
@@ -980,7 +950,8 @@ body { padding-top: 70px; }
         <pre><code class="css">
 .column img {
   width: 90%;
-  max-width: 90%;
+  display: block;
+  margin: auto;
 }
         </code></pre>
         <p>There we go!</p>
@@ -988,7 +959,8 @@ body { padding-top: 70px; }
         <pre><code class="css">
 .column img {
   width: 90%;
-  max-width: 90%;
+  display: block;
+  margin: auto;
   border-radius: 50%;
 }
         </code></pre>
