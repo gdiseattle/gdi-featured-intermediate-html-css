@@ -49,11 +49,11 @@
 
       <section>
         <h3>Class notes</h3>
-        <p>All slides are available at <a href="http://gdiseattle.github.io/gdi-new-intermediate-htmlcss">
-          http://gdiseattle.github.io/gdi-new-intermediate-htmlcss</a>
+        <p>All slides are available at <a href="http://gdiseattle.github.io/gdi-featured-intermediate-html-css">
+          http://gdiseattle.github.io/gdi-featured-intermediate-html-css</a>
         </p>
-        <p>The slide repository is also available on Github at <a href="https://github.com/gdiseattle/gdi-new-intermediate-htmlcss">
-          http://github.com/gdiseattle/gdi-new-intermediate-htmlcss</a>
+        <p>The slide repository is also available on Github at <a href="https://github.com/gdiseattle/gdi-featured-intermediate-html-css">
+          http://github.com/gdiseattle/gdi-featured-intermediate-html-css</a>
         </p>
       </section>
 
@@ -97,7 +97,7 @@
         <ul>
           <li>Tell us who you are.</li>
           <li>What do you hope to get out of this class?</li>
-          <li>Unlimited amount of money - where would you travel to?</li>
+          <li>If you could have any kind of animal as a pet, what would it be?</li>
         </ul>
       </section>
 
@@ -119,8 +119,8 @@
       <section>
         <h3>Workshop files</h3>
         <p>Last reminder to download the files for today's class!
-          <a href="http://gdiseattle.github.io/gdi-new-intermediate-htmlcss/workshop-files.zip" target="blank">
-          http://gdiseattle.github.io/gdi-new-intermediate-htmlcss/workshop-files.zip</a>
+          <a href="http://gdiseattle.github.io/gdi-featured-intermediate-html-css/workshop-files.zip" target="blank">
+          http://gdiseattle.github.io/gdi-featured-intermediate-html-css/workshop-files.zip</a>
         </p>
         <ul>
           <li>We have provided a folder that contains sample images for you to use today. We encourage you to be creative so don't feel like you're restricted to these images</li>
@@ -210,10 +210,54 @@ list-style-type: square;
       <section>
         <h3>Box model</h3>
         <p>We're also going to adjust the box model from "padding-box" (the default) to "border-box"</p>
-        <p>In this model, the width includes padding, instead of being added to it.</p>
         <pre><code class="css">
 * {
   box-sizing: border-box;
+}
+        </code></pre>
+      </section>
+      
+      <section>
+        <h3>Padding box</h3>
+        <p>The standard HTML box model is "padding-box." In this model, padding is added to the width of a box.
+        <pre><code class="css">
+/* On the page, this element is 550px wide:
+  500px width + 25px left padding + 25px right padding */
+.element {
+  box-sizing: padding-box; /* default */
+  width: 500px;
+  padding: 25px;
+}
+        </code></pre>
+      </section>
+      
+      <section>
+        <h3>Border box</h3>
+        <p>The "border-box" model works more the way we tend to think about elements: padding is applied after the width is set, not before.</p>
+        <pre><code class="css">
+/* This element actually is 500px wide */
+.element {
+  box-sizing: border-box;
+  width: 500px;
+  padding: 25px;
+}
+        </code></pre>
+      </section>
+      
+      <section>
+        <h3>Why box model matters</h3>
+        <p>By using <code>border-box</code>, it's easier to fit elements neatly into a space, because we can add up the widths in percentages, regardless of padding.</p>
+        <pre><code class="css">
+* { box-sizing: border-box }
+.sidebar {
+  float: left;
+  width: 33%;
+  padding: 8px;
+}
+.mainbar {
+  float: left;
+  width: 67%;
+  padding: 16px;
 }
         </code></pre>
       </section>
