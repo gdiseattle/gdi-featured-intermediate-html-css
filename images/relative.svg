@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewbox="0 0 640 384" width="640" height="384">
+  <style>
+text {
+  font-size: 20px;
+  font-family: monospace;
+  fill: white;
+}
+
+.scenery {
+  stroke: purple;
+  stroke-width: 3px;
+  fill: transparent;
+}
+
+.outline {
+  stroke-dasharray: 10 4;
+  stroke: magenta;
+  stroke-width: 2px;
+  fill: transparent;
+}
+
+.repositioned {
+  fill: magenta;
+}
+  </style>
+  <!-- relative position -->
+  <rect class="scenery" x="20" y="-100" width="500" height="200"></rect>
+  <rect class="scenery" x="20" y="300" width="500" height="200"></rect>
+  <rect class="outline" x="20" y="110" width="500" height="180"></rect>
+  <rect class="repositioned" x="80" y="180" width="500" height="180"></rect>
+  <text x="85" y="200">position: relative;</text>
+  <text x="85" y="220">top: 100px</text>
+  <text x="85" y="240">left: 100px;</text>
+  <line class="outline" x1="20" y1="110" x2="80" y2="180"></line>
+  <line class="outline" x1="20" y1="290" x2="80" y2="360"></line>
+  <line class="outline" x1="520" y1="110" x2="580" y2="180"></line>
+</svg>

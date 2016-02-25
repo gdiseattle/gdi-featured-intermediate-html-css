@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewbox="0 0 640 384" width="640" height="384">
+  <style>
+text {
+  font-size: 20px;
+  font-family: monospace;
+}
+
+.outline {
+  stroke-dasharray: 10 4;
+  stroke: magenta;
+  stroke-width: 2px;
+}
+  </style>
+  <!-- viewport/fixed position -->
+  <rect x="0" y="0" width="640" height="384" stroke="purple" stroke-width="3" fill="white"></rect>
+  <text x="30" y="20" fill="purple">Window viewport</text>
+  <rect x="1" y="1" fill="transparent" class="outline" width="500" height="300"></rect>
+  <line x1="1" y1="1" x2="50" y2="50" class="outline"></line>
+  <line x1="500" y1="1" x2="550" y2="50" class="outline"></line>
+  <line x1="1" y1="300" x2="50" y2="350" class="outline"></line>
+  <rect x="50" y="50" fill="magenta" width="500" height="300"></rect>
+  <text x="55" y="70" fill="white">position: fixed;</text>
+  <text x="55" y="90" fill="white">top: 100px;</text>
+  <text x="55" y="110" fill="white">left: 50px;</text>
+</svg>
