@@ -1,3 +1,10 @@
+.reveal .interstitial *,
+.reveal .interstitial a {
+  color: #fafafa;
+}
+.reveal .interstitial a:hover {
+  color: #fffffa;
+}
 div.sliders {
   text-align: right;
   margin: 0 auto;
@@ -590,7 +597,7 @@ article.gradients .radial-example6 {
   top: 180px;
 }
 /* line 376, source/slides.css */
-.transition-delay div {
+.transition-delay .examples div {
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
@@ -643,17 +650,17 @@ article.gradients .radial-example6 {
 }
 
 /* line 406, source/slides.css */
-.transition-timing-function article {
+.transition-timing-function .examples {
   margin: 0 auto;
   width: 600px;
 }
 /* line 410, source/slides.css */
-.transition-timing-function article:hover div {
+.transition-timing-function .examples:hover div {
   background-color: red;
   width: 580px;
 }
 /* line 416, source/slides.css */
-.transition-timing-function div {
+.transition-timing-function .examples div {
   background-color: #cccccc;
   height: 20px;
   font-size: 18px;
