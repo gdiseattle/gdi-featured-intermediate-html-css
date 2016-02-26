@@ -358,9 +358,6 @@ list-style-type: square;
           <li class="fragment">
             <strong class="blue">Sept. 2012:</strong> WC3 proposes stable release of HTML5 by end of 2014
           </li>
-          <li class="fragment">
-            <strong class="blue">Oct. 2014:</strong> HTML5 released as a stable recommendation, meaning specification process is complete.
-          </li>
         </ul>
       </section>
 
@@ -423,7 +420,7 @@ list-style-type: square;
       <section>
         <h2>HTML5 Doctype</h2>
         <pre><code class="html">
-&lt;!DOCTYPE html&gt;
+&lt;!DOCTYPE html&gt;
         </code></pre>
         <p>
           Minimum information required to ensure that a browser renders using standards mode
@@ -433,10 +430,10 @@ list-style-type: square;
       <section>
         <h2>Old Doctypes</h2>
         <pre><code class="html">
-&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
 "http://www.w3.org/TR/html4/strict.dtd"&gt;
 
-&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;
         </code></pre>
       </section>
@@ -531,20 +528,35 @@ list-style-type: square;
           <li>Be careful - screen heights vary, and it reduces the amount of content visible on smaller screens.</li>
         </ul>
       </section>
+      
+      <section>
+        <h3>Review: relative position</h3>
+        <img src="./images/relative.svg">
+        <p>Relative position places an element based on its normal position</p>
+      </section>
+      
+      <section>
+        <h3>Review: absolute position</h3>
+        <img src="./images/absolute.svg">
+        <p>Absolute position places an element based on the nearest ancestor element with non-static position, and removes it from layout</p>
+      </section>
+      
+      <section>
+        <h3>Review: fixed position</h3>
+        <img src="./images/fixed.svg">
+        <p>Fixed position places an element based on the window viewport, and removes it from layout (it is "sticky" despite scrolling)
+      </section>
 
       <section>
         <h3>Fixed Nav: HTML</h3>
-        <p>Let's include it in a header, since we know we'll be grouping related content here.</p>
         <pre><code class="html">
-&lt;header role="banner"&gt;
-  &lt;nav class="main-nav"&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href="about.html"&gt;About&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href="work.html"&gt;My Work&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href="contact.html"&gt;Contact&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/nav&gt;
-&lt;/header&gt;
+&lt;nav&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href="#home"&gt;My Home&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#diet"&gt;My Diet&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#pattern"&gt;Stripes&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
         </code></pre>
       </section>
 
@@ -553,14 +565,15 @@ list-style-type: square;
         <p>Remember, using fixed position is like using absolute position, except that it's fixed to the viewport, not the containing element.</p>
         <p>We also have to define a width for it, and its location.</p>
         <pre><code class="css">
-.main-nav {
+nav {
   position: fixed;
   top: 0;
   left: 0;
-  background: #fafafa;
-  border-bottom: 2px solid #ccc;
-  height: 70px;
   width: 100%;
+  background: rgba(250, 250, 250, 0.8);
+  border-bottom: 2px solid #ccc;
+  overflow: hidden;
+  height: 70px;
 }
         </code></pre>
       </section>
@@ -574,14 +587,15 @@ list-style-type: square;
 body {
   padding-top: 70px;
 }
-.main-nav {
+nav {
   position: fixed;
   top: 0;
   left: 0;
-  background: #fafafa;
-  border-bottom: 2px solid #ccc;
-  height: 70px;
   width: 100%;
+  background: rgba(250, 250, 250, 0.8);
+  border-bottom: 2px solid #ccc;
+  overflow: hidden;
+  height: 70px;
 }
         </code></pre>
       </section>
@@ -591,13 +605,15 @@ body {
         <p>Now we need to get those list items next to each other instead of stacked.</p>
         <p>Let's float them to the left and add some padding to the links so they have a large clickable area.</p>
         <pre><code class="css">
-.main-nav li {
+nav li {
   float: left;
-  width: auto;
 }
-.main-nav li a {
+
+nav li a {
   padding: 25px 10px;
   display: block;
+  text-decoration: none;
+  color: #333;
 }
         </code></pre>
       </section>
@@ -608,16 +624,14 @@ body {
           <code>H1</code> with text replacement to include a brand, or logo, in the corner
           that will still work if images are turned off, making it accessible to screen readers.</p>
           <pre><code class="html">
-&lt;header role="banner"&gt;
-  &lt;nav class="main-nav"&gt;
-  &lt;h1 id="brand"&gt;Cara Jo Miller&lt;/h1&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href="about.html"&gt;About&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href="work.html"&gt;My Work&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href="contact.html"&gt;Contact&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/nav&gt;
-&lt;/header&gt;
+&lt;nav&gt;
+  &lt;h1 class="brand"&gt;IMA Zebra&lt;/h1&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href="#home"&gt;My Home&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#diet"&gt;My Diet&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#pattern"&gt;Stripes&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
         </code></pre>
       </section>
 
@@ -625,17 +639,17 @@ body {
         <h3>Fixed Nav: <br>Text Replacement &amp; H1s</h3>
         <p>(<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background">CSS Background Reference</a>)</p>
         <pre><code class="css">
-#brand {
-  text-indent: -90000px;
-  background: url(../images/brand.png) no-repeat top left;
-  height: 60px;
-  width: 60px;
+.brand {
+  text-indent: -9000px;
+  background: url(../images/z.png) no-repeat top left;
+  background-size: 45px;
+  height: 45px;
+  width: 45px;
   float: left;
-  margin: 5px;
+  margin: 10px;
 } 
 .main-nav ul {
   float: right;
-  width: auto;
 }
         </code></pre>
       <p>The background url must match an image in your workshop files. Remember relative URLs?</p>
@@ -655,18 +669,16 @@ body {
         <h3>Fixed Nav: Container</h3>
         <p>Notice how the edge of the nav bumps up against the edge of the browser? Let's fix that by adding a container around it.</p>
         <pre><code class="html">
-&lt;header role="banner"&gt;
-  &lt;nav class="main-nav"&gt;
-    &lt;div class="container"&gt;
-      &lt;h1 id="brand"&gt;Cara Jo Miller&lt;/h1&gt;
-      &lt;ul&gt;
-        &lt;li&gt;&lt;a href="about.html"&gt;About&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href="work.html"&gt;My Work&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href="contact.html"&gt;Contact&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-    &lt;/div&gt;
-  &lt;/nav&gt;
-&lt;/header&gt;
+&lt;nav&gt;
+  &lt;div class="container"&gt;
+    &lt;h1 class="brand"&gt;IMA Zebra&lt;/h1&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="#home"&gt;My Home&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#diet"&gt;My Diet&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#pattern"&gt;Stripes&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
         </code></pre>
       </section>
 
@@ -733,11 +745,11 @@ body {
         <h3>Hero: HTML</h3>
         <p>Our hero section should look a little something like this:</p>
         <pre><code class="html">
-&lt;section id="hero"&gt;
-  &lt;img src="images/wally-wizard.jpg" alt="" /&gt;
-  &lt;h2&gt;Wally Wallerson&lt;/h2&gt;
-  &lt;span class="city"&gt;Seattle, WA&lt;/span&gt;
-&lt;/section&gt;
+&lt;header class="hero"&gt;
+  &lt;img src="images/zebra.jpg" alt="Zebra"&gt;
+  &lt;h2&gt;I.M.A. Zebra&lt;/h2&gt;
+  &lt;span class="subhead"&gt;Not a horse&lt;/span&gt;
+&lt;/header&gt;
         </code></pre>
       </section>
 
@@ -745,25 +757,13 @@ body {
         <h3>Hero: CSS</h3>
         <p>Now is where the fun really happens!</p>
         <pre><code class="css">
-#hero {
-  background: url(../images/alpinelakes.jpg) no-repeat top left;
-  color: #fafafa;
+.hero {
+  background: url(../images/zebra-hero.jpg) no-repeat 50% 50%;
   text-align: center;
+  color: #fafafa;
+  padding: 50px 0;
 }
         </code></pre> 
-      </section>
-
-      <section>
-        <h3>Hero: CSS</h3>
-        <p>Let's give it a height and some padding too.</p>
-        <pre><code class="css">
-#hero {
-  background: url(../images/alpinelakes.jpg) no-repeat top left;
-  color: #fafafa;
-  text-align: center;
-  padding: 25px 0;
-}
-        </code></pre>
       </section>
 
       <section>
@@ -781,7 +781,7 @@ body {
         <p>Let's make the profile image a little smaller.</p>
         <p>We'll use CSS Targeting with the descendant selector to style the image.</p>
         <pre><code class="css">
-#hero img {
+.hero img {
   width: 150px;
 }
         </code></pre>
@@ -807,7 +807,7 @@ body {
         <h3>Border-radius</h3>
         <p>20px radius on all corners</p>
         <pre><code class="css">
-#hero img {
+.hero img {
   border-radius: 20px;
 }
         </code></pre>
@@ -819,7 +819,7 @@ body {
         <p>10px radius on top left &amp; bottom right</p>
         <p>40px on top right &amp; bottom left</p>
         <pre><code class="css">
-#hero img {
+.hero img {
   border-radius: 10px 40px;
 }
         </code></pre>
@@ -833,7 +833,7 @@ body {
         <p>40px radius bottom right</p>
         <p>80px radius bottom left</p>
         <pre><code class="css">
-#hero img {
+.hero img {
   border-radius: 10px 20px 40px 80px;
 }
         </code></pre>
@@ -844,7 +844,7 @@ body {
         <h3>Border-radius</h3>
         <p>50% radius on all corners</p>
         <pre><code class="css">
-#hero img {
+.hero img {
   border-radius: 50%;
 }
         </code></pre>
@@ -861,12 +861,12 @@ body {
           <br><code>background-size</code> (<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-size">Reference</a>)
         </p>
         <pre><code class="css">
-#hero {
-  background: url(../images/alpinelakes.jpg) no-repeat top left;
-  background-size: cover;
-  color: #fafafa;
+.hero {
+  background: url(../images/zebra-hero.jpg) no-repeat 50% 50%;
   text-align: center;
-  padding: 25px 0;
+  color: #fafafa;
+  background-size: cover;
+  padding: 50px 0;
 }
         </code></pre>
         <p>
@@ -881,11 +881,11 @@ body {
         <li>Great for inheriting colors!</li>
         </ul>
         <pre><code class="css">
-#hero p {
+.hero p {
   border: 1px solid;
   color: blue;
 }
-#hero p span {
+.hero p span {
   background: currentColor;
 }
         </pre></code>
@@ -917,16 +917,16 @@ body {
         <h3>3 Column: HTML</h3>
         <p>Our code should look something like this:</p>
         <pre><code class="html">
-&lt;section id="main-content"&gt;
-  &lt;h3&gt;...&lt;/h3&gt;
-  &lt;article class="column"&gt;
-    &lt;img src="images/photographer.jpg" alt=""&gt;
-    &lt;h4&gt;The Photographer&lt;/h4&gt;
-    &lt;p&gt;I travel to some pretty awesome places...&lt;/p&gt;
-    &lt;a href="photos.html" class="btn"&gt;See my photos&lt;/a&gt;
-  &lt;/article&gt;
-  &lt;!-- Repeat article for each column --&gt;
-&lt;/section&gt;
+&lt;main class="main-content"&gt;
+  &lt;h3&gt;I'm a zebra.&lt;/h3&gt;
+  &lt;section class="column" id="home"&gt;
+    &lt;img src="images/africa.png" alt="Africa"&gt;
+    &lt;h4&gt;My Home&lt;/h4&gt;
+    &lt;p&gt;Wild zebras live in Africa.&lt;/p&gt;
+    &lt;a href="" class="btn"&gt;See my home&lt;/a&gt;
+  &lt;/section&gt;
+  &lt;!-- repeat with two more sections --&gt;
+&lt;/main&gt;
         </code></pre>
 
       </section>
@@ -940,7 +940,7 @@ body {
   padding: 15px;
 }
         </code></pre>
-        <p>We used 33.33%, because it let's us perfectly spaced columns without doing math! Don't forget padding (or margin) to give the columns so space.</p>
+        <p>We used 33.33%, because it let's us perfectly spaced columns without doing math! Don't forget padding to give the columns so space.</p>
       </section>
 
       <section>
@@ -971,22 +971,14 @@ body {
         <p>We've got our 3 column layout set, our images are scaled based on the width of the
           column, but our columns are still bumping against the edges of the browser.</p>
         <pre><code class="html">
-&lt;section id="main-content"&gt;
-  &lt;div class="container"&gt;
-    &lt;h3&gt;...&lt;/h3&gt;
-    &lt;article class="column"&gt;
-      ...
-    &lt;/article&gt;
-    &lt;article class="column"&gt;
-      ...
-    &lt;/article&gt;
-    &lt;article class="column"&gt;
-      ...
-    &lt;/article&gt;
-  &lt;/div&gt;
-&lt;/section&gt;
+&lt;main class="main-content container"&gt;
+  &lt;h3&gt;I'm a zebra.&lt;/h3&gt;
+  &lt;section class="column"&gt;&lt;/section&gt;
+  &lt;section class="column"&gt;&lt;/section&gt;
+  &lt;section class="column"&gt;&lt;/section&gt;
+&lt;/main&gt;
         </code></pre>
-        <p>Adding the container, that we already defined the width of, makes the everything line up.</p>
+        <p>Adding the container class makes the everything line up.</p>
       </section>
 
       <section>
@@ -998,7 +990,7 @@ body {
         <li>To be extra crafty and efficient, try using it on a pseudo-element:</li>
         </ul>
         <pre><code class="css">
-#main-content:after {
+.main-content::after {
   content: '';
   clear: both;
   display: block;
@@ -1098,60 +1090,42 @@ Girl Develop It
       <section>
         <h3>Social Links: HTML</h3>
         <pre><code class="html">
-&lt;section id="social"&gt;
-  &lt;ul&gt;
-    &lt;li&gt;
-      &lt;a href=".."&gt;
-        &lt;img src="images/facebook.svg" alt="Facebook" /&gt;
-      &lt;/a&gt;
-    &lt;/li&gt;
-    &lt;!-- Repeat li for each social link you want to include --&gt;
-  &lt;/ul&gt;
-&lt;/section&gt;
+&lt;footer class="social"&gt;
+  &lt;div class="container"&gt;
+    &lt;h3&gt;I'm pretty social too. We should be friends.&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;img src="images/facebook.svg" alt="Facebook" /&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;img src="images/twitter.svg" alt="Twitter" /&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;img src="images/instagram.svg" alt="Instagram" /&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;img src="images/linkedin.svg" alt="LinkedIn" /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;
         </code></pre>
         <p>We're using a list for these links for the exact same reason we used them in the navigation. They are a list of links, and should be marked up accordingly.</p>
       </section>
 
       <section>
         <h3>Social Links: CSS</h3>
-        <p>We'll need to add a background, some padding, account for the floated list items.</p>
+        <p>We'll need to add a background, some padding, and center the icons using text alignment.</p>
         <pre><code class="css">
-#social {
-  background: #57BEC5;
+.social {
+  background: #8a80c3;
   color: #fafafa;
   padding: 25px 0;
-  overflow: hidden;
+  text-align: center;
 }
-#social li {
-  float: left;
-  width: auto;
-  padding: 20px;
+
+.social ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.social li {
+  display: inline-block;
 }
         </code></pre> 
-      </section>
-
-      <section>
-        <h3>Centering the List</h3>
-        <p>First we should put our social links in a container! We'll also add in a headline.</p>
-        <pre><code class="html">
-&lt;section id="social">
-  &lt;div class="container">
-    &lt;h3>...&lt;/h3>
-    &lt;ul>
-      ...
-    &lt;/ul>
-  &lt;/div>
-&lt;/section>
-        </code></pre>
-        <p>Next we'll center the
-          <code>ul</code> with our magic auto margin.</p>
-        <pre><code class="css">
-#social ul {
-  width: 520px;
-  margin: 0 auto;
-}
-        </code></pre>
-        <p>We'll need to give it a width, for the auto margin to work with. This may take some tinkering in the inspect element to get the right width.</p>
       </section>
 
       <section>
@@ -1206,8 +1180,10 @@ Girl Develop It
           <li>Grab the code that Google prepares for you and add it to your site!</li>
         </ol>
         <pre><code class="html">
-@import url(http://fonts.googleapis.com/
-css?family=Lato:300,400,700,300italic,400italic|Bree+Serif);
+&lt;link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Lato|Bree+Serif"
+&gt;
         </code></pre>
         <a href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic|Bree+Serif" target="_blank">What does that do?</a>
       </section>
@@ -1303,7 +1279,7 @@ h1, h2, h3, h4, h5, h6 {
         <p>control a color's alpha channel</p>
         <pre><code class="css">
 .example2 {
-  background-color: rgba(255, 0, 0, 0.8);
+  background-color: rgba(255, 0, 0, 0.8);
 }
         </code></pre>
         <p>color property using (red, green, blue, opacity)</p>
@@ -1318,8 +1294,8 @@ h1, h2, h3, h4, h5, h6 {
         <h3>opacity</h3>
         <p>control the opacity of an element</p>
         <pre><code class="css">
-.example2 {
-  opacity: 0.8;
+.example2 {
+  opacity: 0.8;
 }
         </code></pre>
         <p>decimal value from 0 to 1</p>
@@ -1345,9 +1321,9 @@ h1, h2, h3, h4, h5, h6 {
         <h2>text-shadow</h2>
         <p>text-shadow: offset-x offset-y blur-radius color</p>
         <pre><code class="css">
-#example1 { text-shadow: 2px 2px 10px red; }
+.example1 { text-shadow: 2px 2px 10px red; }
 
-#example2 {
+.example2 {
 text-shadow: 1px 1px 10px red,
       10px 10px 10px orange,
       15px 15px 10px yellow,
@@ -1365,7 +1341,7 @@ text-shadow: 1px 1px 10px red,
       <section>
         <h2>text-shadow</h2>
         <p style="margin-top: 1em;">Subtle dark shadows behind white text can help readability.</p>
-        <pre><code class="css">#hero h2 { text-shadow: 2px 2px 2px #000; }</code></pre>
+        <pre><code class="css">.hero h2 { text-shadow: 2px 2px 2px #000; }</code></pre>
         <img src="images/text-shadow-on-image.png" alt="text shadow on image" style="max-height: 300px;">
       </section>
       
@@ -1382,7 +1358,7 @@ text-shadow: 1px 1px 10px red,
         <h3>box-shadow</h3>
         <p>box-shadow: offset-x offset-y color</p>
         <pre><code class="css">
-.example1 { box-shadow: 5px 5px red; }
+.example1 { box-shadow: 5px 5px red; }
         </code></pre>
         <div style="box-shadow: 5px 5px red; height: 100px; width: 100px; border: 2px solid black; margin: 0 auto;">
         </div>
@@ -1392,7 +1368,7 @@ text-shadow: 1px 1px 10px red,
         <h3>box-shadow</h3>
         <p>box-shadow: offset-x offset-y blur spread color</p>
         <pre><code>
-.example { box-shadow: 0 0 5px 5px red; }
+.example { box-shadow: 0 0 5px 5px red; }
         </code></pre>
         <div style="box-shadow: 0 0 5px 5px red; height: 100px; width: 100px; border: 2px solid black; margin: 0 auto;">
         </div>
@@ -1402,7 +1378,7 @@ text-shadow: 1px 1px 10px red,
         <h3>box-shadow</h3>
         <p>box-shadow: inset offset-x offset-y blur spread color</p>
         <pre><code>
-.example { box-shadow: inset 0 2px 5px 0px red; }
+.example { box-shadow: inset 0 2px 5px 0px red; }
         </code></pre>
         <div style="box-shadow: inset 0 2px 5px 0px red; height: 100px; width: 100px; border: 2px solid black; margin: 0 auto;">
         </div>
@@ -1547,11 +1523,11 @@ text-shadow: 1px 1px 10px red,
         <h2>transition-property</h2>
         <p>the names of CSS properties that should be transitioned</p>
         <pre><code>
-  .example1 { transition-property: background-color; }
+  .example1 { transition-property: background-color; }
         </code></pre>
         <p>set to <strong>all</strong> to transition all CSS properties</p>
         <pre><code>
-  .example2 { transition-property: all; }
+  .example2 { transition-property: all; }
         </code></pre>
       </section>
 
@@ -1569,7 +1545,7 @@ text-shadow: 1px 1px 10px red,
         <h2>transition-duration</h2>
         <p>the number of seconds or milliseconds a transition animation should take to complete</p>
         <pre><code>
-  .example1 { transition-duration: 2s; }
+  .example1 { transition-duration: 2s; }
         </code></pre>
         <div class="sliders" style="width:40%;">
           <p>
@@ -1583,12 +1559,13 @@ text-shadow: 1px 1px 10px red,
       <section class="transition-delay">
         <h2>transition-delay</h2>
         <p>delay transitions from the moment a trigger happens</p>
-        <pre><code>.example1 { transition-delay: 0s; }
-.example2 { transition-delay: 1s; }
-.example3 { transition-delay: 2s; }
-.example4 { transition-delay: 3s; }
+        <pre><code>
+.example1 { transition-delay: 0s; }
+.example2 { transition-delay: 1s; }
+.example3 { transition-delay: 2s; }
+.example4 { transition-delay: 3s; }
         </code></pre>
-        <article>
+        <article class="examples">
           <div class="example4">3</div>
           <div class="example3">2</div>
           <div class="example2">1</div>
@@ -1599,8 +1576,8 @@ text-shadow: 1px 1px 10px red,
       <section class="transition-timing-function">
         <h2>transition-timing-function</h2>
         <p>determines how intermediate values are calculated</p>
-        <pre><code>.example { transition-timing-function: ease; }</code></pre>
-        <article>
+        <pre><code>.example { transition-timing-function: ease; }</code></pre>
+        <article class="examples">
           <div class="ease">ease</div>
           <div class="linear">linear</div>
           <div class="ease-in">ease-in</div>
@@ -2062,11 +2039,6 @@ img {
 }
         </code></pre>
         <p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation">CSS Reference</a></p>
-      </section>
-
-      <section>
-        <h3>Animation: Browser Support</h3>
-        <a href="http://caniuse.com/#search=css-animation"><img src="images/animation-support.png" alt="Caniuse: Animation"></a>
       </section>
 
       <section>
