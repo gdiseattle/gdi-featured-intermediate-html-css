@@ -37,7 +37,7 @@ nav li a {
   color: #333;
 }
 
-nav li a:hover {
+nav li a:hover, nav li a:focus {
   background: #e5e5e5;
 }
 
@@ -130,7 +130,7 @@ nav li a:hover {
   transition: all .3s linear;
 }
 
-.column .btn:hover {
+.column .btn:hover, .column .btn:focus {
   background: #8a80c3;
   color: white;
 }
@@ -158,7 +158,7 @@ nav li a:hover {
   transition: all .3s ease-in-out;
 }
 
-.social li:hover {
+.social li:hover, .social li:focus {
   transform: scale(1.1) translateY(-4px);
 }
 
